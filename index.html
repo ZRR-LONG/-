@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星耀抽奖台 · 公司内部抽奖</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="brand">
+        <span class="logo">✨</span>
+        <div>
+          <p class="subtitle">Company Lucky Draw</p>
+          <h1>星耀抽奖台</h1>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="ghost" id="resetBtn">清空名单</button>
+        <button class="primary" id="drawBtn">立即抽奖</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel upload">
+        <h2>导入员工名单</h2>
+        <p class="muted">支持 .csv / .txt，每行一个姓名或“姓名,工号”。</p>
+        <label class="upload-area" for="fileInput">
+          <input id="fileInput" type="file" accept=".csv,.txt" />
+          <div>
+            <h3>拖拽文件到此处</h3>
+            <p>或点击选择文件</p>
+          </div>
+        </label>
+        <div class="manual-input">
+          <textarea id="manualInput" placeholder="也可直接粘贴名单，例如：\n张三\n李四,10086\n王五"></textarea>
+          <button class="secondary" id="importBtn">导入名单</button>
+        </div>
+        <div class="stats">
+          <div>
+            <span id="count">0</span>
+            <small>当前人数</small>
+          </div>
+          <div>
+            <span id="winnerCount">0</span>
+            <small>已中奖</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel stage">
+        <div class="stage-glow"></div>
+        <div class="stage-content">
+          <p class="stage-title">下一位幸运星</p>
+          <div class="stage-name" id="stageName">等待抽奖</div>
+          <p class="stage-hint">点击“立即抽奖”启动酷炫滚动</p>
+        </div>
+      </section>
+
+      <section class="panel winners">
+        <h2>中奖名单</h2>
+        <ul id="winnerList" class="winner-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div class="particles" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
